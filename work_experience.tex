@@ -1,0 +1,424 @@
+%-------------------------
+% Resume in Latex
+% Original author : Sourabh Bajaj
+% Adaptation : Hyunggi Chang (changh95)
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage{kotex} % 한글 사용 가능! 
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{amsmath}
+
+\pagestyle{fancy}
+\fancyhf{} % clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-0.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\bfseries\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-2pt}]
+
+%-------------------------
+% Custom commands - Do Look into this area, if you wish to customise further!
+% 포맷이 마음에 들지 않으시다면 이 부분을 수정하세요!
+
+\newcommand{\resumeItem}[1]{
+  \item\small{
+    {#1 \vspace{-2pt}}
+  }
+}
+
+\newcommand{\resumeProject}[3]{
+  \vspace{0pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      #1 & \small #2 \\
+      {#3}
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubProject}[2]{
+  \item{
+    {#1 \vspace{0pt}}
+    {#2}
+  }
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeProjectListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeProjectListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubProjectListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubProjectListEnd}{\end{itemize}}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\href{http://changh95.github.io}{\Large Your Name (경력 기술서)}} & Github: jx2lee \\
+  \href{http://www.jx2lee.kr}{http://www.jx2lee.kr} & Email : \href{mailto:dev.jaejun.lee.1991@gmail.com}{dev.jaejun.lee.1991@gmail.com} \\
+\end{tabular*}
+
+%-----------PROJECTS-----------------
+\section{Project name}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\section{\textbf{Project name}}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+        
+        \vspace{2mm}
+
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\section{\textbf{Project name}}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+        
+        \vspace{2mm}
+
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\section{\textbf{Project name}}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+        
+        \vspace{2mm}
+
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\section{\textbf{Project name}}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+        
+        \vspace{2mm}
+
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\section{\textbf{Project name}}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+        
+        \vspace{2mm}
+
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\section{\textbf{Project name}}
+  \resumeProjectListStart
+    \resumeProject
+    {\textbf{소속}: (주) [회사 이름]} {2020.01 - PRESENT}
+    
+    {\textbf{Description}:
+    
+    TBU
+    
+    \resumeSubProjectListStart
+        \resumeSubProject {\textbf{Problem}}
+        
+        {TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Action}
+        
+        TBU
+        
+        \vspace{2mm}
+
+        \textbf{Result}
+        
+        TBU
+        
+        \vspace{2mm}
+        
+        \textbf{Impact}
+        
+        TBU
+
+        \vspace{2mm}
+
+        \textbf{Self-reflection}
+        
+        TBU
+
+        \vspace{2mm}
+        
+        }
+    \resumeSubProjectListEnd
+    }
+  \resumeProjectListEnd
+%-------------------------------------------
+\end{document}
