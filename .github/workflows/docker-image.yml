@@ -29,7 +29,7 @@ jobs:
           set -euo pipefail
           cd ${{ github.workspace }}
           test -f resume.pdf || { echo "PDF not found"; ls -la; exit 1; }
-          pdftoppm -png -singlefile -rx 200 -ry 200 jaejun_lee_resume.pdf jaejun_lee_resume
+          pdftoppm -png -singlefile -rx 200 -ry 200 resume.pdf resume
 
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
