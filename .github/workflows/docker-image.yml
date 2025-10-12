@@ -30,7 +30,6 @@ jobs:
           cd ${{ github.workspace }}
           test -f resume.pdf || { echo "PDF not found"; ls -la; exit 1; }
           pdftoppm -png -singlefile -rx 200 -ry 200 resume.pdf resume
-
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Apply pdflatex changes
