@@ -2,7 +2,7 @@ fork https://github.com/sb2nov/resume
 
 **Preview:**
 
-![](./jaejun_lee_resume.png)
+![](./resume.png)
 
 ### Quick start
 
