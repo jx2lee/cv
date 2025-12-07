@@ -67,7 +67,7 @@
 
 \newcommand{\ProjectTitle}[2]{
   \section*{#1 \hfill {\small #2}}
-  \addcontentsline{toc}{section}{#1} % 목차를 쓰면 유효, 없으면 무시됨
+  \addcontentsline{toc}{section}{#1}
 }
 
 \newcommand{\resumeSubProject}[2]{
@@ -156,9 +156,8 @@ AWS, GCP, Kubernetes, Kafka, Airflow, BigQuery 등 데이터 인프라를 다룰
 % --- Result ---
 \resumeSubProject{\textbf{Result}}{%
   \resumeSubBulletsStart
-    \item 신규 엔지니어 온보딩 기간 ??일 에서 약 ??일 단축
-    \item 문서 WAREHOURSE 로 MTTR 개선(?? 에서 ??)
-    \item ADR 로 인한 불필요한 커뮤니케이션(반복논의) ?? 감소
+    \item 신규 엔지니어 온보딩 기간 단축 및 문서 WAREHOURSE 로 MTTR 개선
+    \item ADR 로 인한 불필요한 커뮤니케이션(반복논의) 감소
     \item 구성요소/파이프라인/운영이 어루어져 "이렇게 동작해" 설명 가능
   \resumeSubBulletsEnd
 }
@@ -216,7 +215,7 @@ AWS, GCP, Kubernetes, Kafka, Airflow, BigQuery 등 데이터 인프라를 다룰
   \resumeSubProject{\textbf{Result}}{%
     \resumeSubBulletsStart
       \item DW 집계 SLA 99.9\%
-      \item 타 서비스 API 대비 40\% 리소스로 최대 500QPS 
+      \item 타 서비스 API 대비 40\% 낮은 스펙으로도 서비스 제공 가능
     \resumeSubBulletsEnd
   }
 
@@ -271,11 +270,9 @@ CDC 특성상 스냅샷 부하, binlog retention, 커넥터 재시작 시 오프
   \resumeSubProject{\textbf{Result}}{
     \resumeSubBulletsStart
       \item 한 달 기준 99.9\% 적재 성공률 유지(인프라 장애 제외)  
-      \item 평균 CDC 지연 ??초 → ??초로 감소  
       \item Snapshot/Lock 관련 DB 성능 이슈 0건  
-      \item Connect 장애 MTTR ??분 → ??분로 단축  
-      \item CDC 이벤트 기반 모델을 활용한 서비스·분석 팀의 신규 활용 케이스 ?? 건 증가  
-      \item 운영 지표 시각화로 장애 감지 속도 ?? 분 → ?? 단축
+      \item CDC 이벤트 기반 모델을 활용한 서비스·분석 팀의 신규 활용 케이스 증가  
+      \item 운영 지표 시각화로 장애 감지 속도 단축
     \resumeSubBulletsEnd
   }
 
@@ -309,7 +306,7 @@ MSK(Kafka) + Kafka Connect(BigQuery Sink) 기반으로 전환한 프로젝트이
 
 \resumeSubProjectListStart
   % --- Problem ---
-  \resumeSubProject{\textbf{Problem}}{%
+  \resumeSubProject{\textbf{Problem}}{
     \resumeSubBulletsStart
       \item 기존 Kinesis 기반 파이프라인은 EDA 전환으로 곧 deprecate 예정이었고, 실시간 이벤트를 Kafka로 일원화 요건
       \item Lambda 기반 BigQuery 적재는 스케일링과 오류 재처리에서 운영 복잡도가 높았고, Incident 상황에서 메시지 누락 여부를 확인하기 어려움
@@ -328,26 +325,25 @@ MSK(Kafka) + Kafka Connect(BigQuery Sink) 기반으로 전환한 프로젝트이
   }
 
   % --- Result ---
-  \resumeSubProject{\textbf{Result}}{%
+  \resumeSubProject{\textbf{Result}}{
     \resumeSubBulletsStart
-      \item 한 달 운영 기준 99.9\% 이상의 BigQuery 적재 성공률 달성 (인프라 이슈 제외)
-      \item 장애 감지 시간 {}분 → {}초로 단축, MTTR {}분
-      \item Connect 기반 파이프라인으로 전환 후 신규 이벤트 파이프라인 구축 속도 {}\% 단축
+      \item 한 달 운영 기준 99.9\% 이상의 BigQuery 적재 성공률 달성 (인프라 문제 제외)
+      \item Connect 기반 파이프라인으로 전환 후 신규 이벤트 파이프라인 구축 속도 단축
       \item EDA 전환 서비스들과의 통합이 쉬워져 조직 전체의 데이터 흐름 단일화됨
     \resumeSubBulletsEnd
   }
 
   % --- Impact ---
-  \resumeSubProject{\textbf{Impact}}{%
+  \resumeSubProject{\textbf{Impact}}{
     \resumeSubBulletsStart
-      \item Kafka Connect를 통해 실시간 수집 파이프라인을 표준화하고 다양한 소스/타깃 시스템으로 확장 가능한 데이터 플랫폼 인터페이스
+      \item Kafka Connect를 통해 실시간 수집 파이프라인을 표준화하고 다양한 소스/타깃 시스템으로 확장 가능한 데이터 플랫폼 인터페이스 제공
       \item Kinesis → Kafka로의 전환 작업은 전체 데이터 파이프라인의 유지보수 비용 감소
       \item 로그·이벤트 수집의 신뢰성을 확보함으로써 이후 CDC, 실시간 분석, 피드백 모델링 등 조직의 데이터 활용 기반 강화
     \resumeSubBulletsEnd
   }
 
   % --- Self-reflection ---
-  \resumeSubProject{\textbf{Self-Reflection}}{%
+  \resumeSubProject{\textbf{Self-Reflection}}{
     \resumeSubBulletsStart
       \item Kafka Connect는 "구성하면 끝"이 아니라 메트릭·재처리·버전 호환성·스키마 일관성 등 운영 난도가 높은 도구임을 체감
       \item 특히 DLQ 전략 부재, Sink 재시도 정책, Connector 재배포 타이밍 같은 실전 운영 문제를 몸으로 겪으며 스트리밍 파이프라인 운영의 핵심 포인트 deepdive
@@ -389,8 +385,8 @@ GitHub Enterprise 도입을 계기로 CI/CD 체계를 GitHub Actions 기반으�
   % --- Result ---
   \resumeSubProject{\textbf{Result}}{
     \resumeSubBulletsStart
-      \item 기존 Bamboo 대비 빌드 속도 {}\% 개선, 실패 원인 식별 시간 {}분 → {}분으로 단축
-      \item Slim CI 도입으로 변경 모델 중심 빌드가 정착, 전체 빌드 비용 {}\% 절감
+      \item 기존 Bamboo 대비 빌드 속도 40\% 개선
+      \item Slim CI 도입으로 변경 모델 중심 빌드가 정착, 전체 빌드 비용 20\% 절감
       \item 개발자 PR 리뷰 사이클 단축, dbt 모델 품질 및 배포 일관성 향상
       \item CI/CD 파이프라인 장애율 감소, self-hosted runner 기반으로 안정적 실행 환경 확보
     \resumeSubBulletsEnd
@@ -467,10 +463,10 @@ Helm Chart + ArgoCD 기반으로 배포하여, 데이터셀 의존도를 낮추�
   % --- Result ---
   \resumeSubProject{\textbf{Result}}{%
     \resumeSubBulletsStart
-      \item 보안팀이 DataHub Tag 기능으로 개인정보 레이블링 직접 수행 → 데이터셀 요청량 {}$\%$ 감소
+      \item 보안팀이 DataHub Tag 기능으로 개인정보 레이블링 직접 수행 → 데이터셀 요청량 감소
       \item 외부 거래소 캔들 데이터 수집 자동화로 신뢰성 향상 및 데이터 일관성 확보
-      \item MageAI 기반 보고 자동화로 반복 작업 시간 {}분 → {}분으로 단축
-      \item 내부 크루가 스스로 데이터 위치를 파악하고 활용하는 self-serve 문화 정착
+      \item MageAI 기반 보고 자동화로 수동작업 0건
+      \item 내부 임직원이 스스로 데이터 위치를 파악하고 활용하는 self-serve 문화 정착
     \resumeSubBulletsEnd
   }
 
@@ -501,7 +497,30 @@ Helm Chart + ArgoCD 기반으로 배포하여, 데이터셀 의존도를 낮추�
 \centering
 \includegraphics[width=1\textwidth]{assets/sad-diagram.png}
 \caption{SAD CI/CD Pipeline Overview}
-\label{fig:architecture}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{assets/data-api-diagram.png}
+\caption{Data API Diagram}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{assets/cdc-diagram.png}
+\caption{CDC Pipeline Overview}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{assets/migration-kafka-connect-diagram.png}
+\caption{Kafka Connect Overview}
+\end{figure}
+
+\begin{figure}[h]
+\centering
+\includegraphics[width=1\textwidth]{assets/dbt-cicd-diagram.png}
+\caption{dbt CICD pipeline Overview}
 \end{figure}
 
 \end{document}
