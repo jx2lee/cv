@@ -17,6 +17,12 @@ Archieve/
 *.gz
 *.fdb_latexmk
 *.syntax.gz
+src/*.aux
+src/*.fdb_latexmk
+src/*.fls
+src/*.log
+src/*.out
+src/*.pdf
 
 # github action result
 semicolon_delimited_script
