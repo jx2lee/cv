@@ -36,7 +36,7 @@ docker pull --platform linux/amd64 ghcr.io/xu-cheng/texlive-full:latest
 }
 ```
 
-4. Open the folder in VS Code and run “LaTeX Workshop: Build LaTeX project” to generate jaejun_lee_resume.pdf.
+4. Open the folder in VS Code and run `LaTeX Workshop: Build LaTeX project` to generate jaejun_lee_resume.pdf.
 
 
 ### License

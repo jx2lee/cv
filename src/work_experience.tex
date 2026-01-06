@@ -130,46 +130,46 @@ AWS, GCP, Kubernetes, Kafka, Airflow, BigQuery 등 데이터 인프라를 다룰
 데이터 무결성, 안정성, 그리고 "누구나 접근 가능한 신뢰 가능한 데이터”를 제공하는 것에 자부심을 가지는 엔지니어입니다.
 
 %-----------PROJECTS-----------------
-\ProjectTitle{PROJECT: Software Architecture Document 기반 데이터 플랫폼 재설계}{2025.09 - 2025.11}
+\ProjectTitle{PROJECT: 데이터 플랫폼 아키텍처의 재설계ㅡSoftware Architecture Document 를 중심으로}{2025.09 - 2025.11}
 
 \textbf{Description}: (IN BITHUMB) 데이터 플랫폼 전반의 복잡도가 증가하면서 시스템 구조·운영 방식·의사결정 이유를 명확히 설명하기 어려운 상황이었다.  
-      이를 해결하기 위해 CMU SEI의 Software Architecture Document(SAD) 템플릿을 기반으로 데이터 플랫폼 전체의 아키텍처를 정리하고, Architecture Decision Record(ADR)를 도입하여  
-      기술 선택과 운영 기준을 문서화했다. 모든 문서는 마크다운 형태로 작성되었으며 mkdocs \& Gitlab CI/CD 와 S3 static web hosting 으로 제공했다.
+      이를 해결하기 위해 CMU SEI의 Software Architecture Document(SAD) 템플릿을 기반으로 데이터 플랫폼 전체의 아키텍처를 재설계하고, Architecture Decision Record(ADR)를 도입하여  
+      기술 선택과 운영 기준을 문서화했다. 모든 문서는 마크다운 형태로 작성되었으며 mkdocs \& Gitlab CI/CD 와 S3 static web hosting 으로 제공한다.
 
 \resumeSubProjectListStart
   % --- Problem ---
   \resumeSubProject{\textbf{Problem}}{%
     \resumeSubBulletsStart
-      \item 방대한 구성요소에 비해 산발적으로 흩어져 있는 문서로 신규 온보딩 지연(최소 14일, 최대 한 달)
-      \item "왜 Redshift 인가?|왜 운영정책은 이러지?" 의 의사결정이 쌓이지 않아 반복적인 논의 발생
-      \item 운영 관리문서 부재, 조직 간 용어정의 불일치
+      \item 방대한 구성요소에 비해 산발적으로 흩어져 있는 문서로 신규 온보딩 지연
+      \item "왜 Redshift 인가? 왜 운영정책은 이러지?" 의 의사결정이 쌓이지 않아 반복적인 논의 발생
+      \item 운영 관리문서 부재, 조직 간 용어 불일치
     \resumeSubBulletsEnd
   }
 
 % --- Action ---
 \resumeSubProject{\textbf{Action}}{
   \resumeSubBulletsStart
-    \item SEI SAD 템플릿 기반 아키텍처 재설계(CnC/Deployment 전통 + 데이터 플랫폼 특화 파이프라인 뷰 등)
-    \item With ADR(Architecture Decision Record): 변경 이력 관리 및 리뷰 문화 활성화를 도입, "왜?" 의 WAREHOUSE 구성
+    \item SEI SAD 템플릿 기반 아키텍처 재설계(CnC/Deployment 전통 + Pipeline/Management 등의 데이터 특성을 반영한 커스텀 뷰)
+    \item With ADR(Architecture Decision Record): 변경 이력 관리 및 리뷰 문화 활성화를 도입, "왜?" 의 창고 구성
     \item 문서 빌드 파이프라인 개발: mkdocs 로 정적 문서 빌드(Merge 혹은 MR 이벤트CI/CD), 코드 수정에 따른 문서 미변경 시 알람 및 수정사항 반영 제안
-    \item 운영 런북(온보딩가이드): 플랫폼 운영(트러블슈팅) 문서 작성 및 문화 공유
+    \item 운영 런북(온보딩가이드): 플랫폼 운영(트러블슈팅) 문서 작성 및 문화 공유, 문서는 마크다운 !
   \resumeSubBulletsEnd
 }
 
 % --- Result ---
 \resumeSubProject{\textbf{Result}}{%
   \resumeSubBulletsStart
-    \item 신규 엔지니어 온보딩 기간 단축 및 문서 WAREHOURSE 로 MTTR 개선
-    \item ADR 로 인한 불필요한 커뮤니케이션(반복논의) 감소
-    \item 구성요소/파이프라인/운영이 어루어져 "이렇게 동작해" 설명 가능
+    \item 신규 엔지니어 온보딩 기간 단축 및 문서 창고(WAREHOURSE) 로 MTTR 개선
+    \item 플랫폼 문서 공유로 불필요한 커뮤니케이션 감소
+    \item 구성요소/파이프라인/운영이 어루어져 설명가능한 플랫폼 제공
   \resumeSubBulletsEnd
 }
 
 % --- Impact ---
 \resumeSubProject{\textbf{Impact}}{%
   \resumeSubBulletsStart
-    \item 코드에 매몰되어 있던 나를 설계 철학/운영/품질속성 기반 아키텍처로 바라보는 계기
-    \item 팀 간 책임 경계를 명확히 하여 운영 혼선/중복(DO NOT REPEAT YOURSELF) 구현/아쉬운 기술 선택 감소
+    \item 코드에 매몰되어 있던 나를 설계 철학/운영/품질속성 기반 아키텍처로 넓은 시야를 갖게된 계기
+    \item 팀 간 책임 경계를 명확히 하여 운영 혼선/중복제거(DO NOT REPEAT YOURSELF) 구현
     \item "감”이 아닌 "근거 기반(ADR)”으로 진행
   \resumeSubBulletsEnd
 }
