@@ -94,19 +94,9 @@
 
 %----------HEADING-----------------
 \begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
-  \textbf{\Large 이재준} & Email: \href{mailto:jx2lee@dev.jaejun.lee.1991@gmail.com}{dev.jaejun.lee.1991@gmail.com} \\
+  \textbf{\Large 이재준} & Email: \href{mailto:dev.jaejun.lee.1991@gmail.com}{dev.jaejun.lee.1991@gmail.com} \\
   \href{https://www.jx2lee.kr}{jx2lee.kr} \\
 \end{tabular*}
-
-
-%-----------EDUCATION-----------------
-\section{Education}
-  \resumeSubHeadingListStart
-    \resumeSubheading
-      {국민대학교}{성북구, 대한민국}
-      {자연과학대학 수학과; GPA: 3.42}{Mar 2010 -- Feb 2016}
-  \resumeSubHeadingListEnd
-
 
 %-----------EXPERIENCE-----------------
 \section{Experience}
@@ -117,25 +107,25 @@
       \resumeItemListStart
         \resumeItem{High-volume, Optimized Data Platform}
           {
-            체험할 수 없을 정도의 데이터를 다루며 효율적으로 수집/처리하는 업무에 집중했습니다.
-            Lakehouse architecture 을 활용한 데이터 플랫폼을 개발 운영하며, 대용량 처리와 품질 향상에 중점을 두었어요
+            체험하기 힘든 큰 데이터를 다루며 효율적으로 수집/처리하는 영역에 집중했어요.
+            Lakehouse architecture 기반 데이터 플랫폼을 개발했어요. 특히 사용자 혹은 서비스에 어떤 인터페이스로 데이터를 제공할 수 있을지 고민했어요.
           }
-        \resumeItem{Software Architecture Document}
-          {
-            CMU SEI에서 제안한 \textit{Software Architecture Document (SAD)} 템플릿을 기반으로 데이터 플랫폼 구성요소와 운영·관리 뷰를 설계했어요. 
-            품질속성 중심의 의사결정 관리를 위해 ADR(Architecture Decision Record)도 병행하며 신 구의 조합으로 플랫폼을 설계했어요. 
-            \textit{문서도 코드처럼} 생각하는 마음으로 정적 사이트를 빌드하고 배포하는 파이프라인을 만들었어요. 
-          }
-        \resumeItem{Data API}
+        \resumeItem{Interface for DataServing}
           {
             서비스 DB에서 실행하기 부담스러운 집계를 DW 에 위임, 이를 제공하는 API 를 개발했습니다.
             역할과 책임을 분리하고자 Reverse ETL 을 이용했고, 모노레포로 구성하여 다른 서비스간 의존성을 제거하여 개발생산성을 높였어요.
           }
-        \resumeItem{Data Outcome Measures}
-          {
-            그동안 경험한 데이터팀은 "도와주는" 역할의 이미지가 강했지만, "주도하는" 데이터팀을 꿈꿨습니다.
-            데이터가 어떻게 활용되고 있는지 | 데이터가 비즈니스에 어떤 영향을 미쳤는지 측정하는 지표를 수집할 수 있는 자동화 플랫폼을 만들고 운영했어요.
-          }
+        % \resumeItem{Software Architecture Document}
+        %   {
+        %     CMU SEI에서 제안한 \textit{Software Architecture Document (SAD)} 템플릿을 기반으로 데이터 플랫폼 구성요소와 운영·관리 뷰를 설계했어요. 
+        %     품질속성 중심의 의사결정 관리를 위해 ADR(Architecture Decision Record)도 병행하며 신 구의 조합으로 플랫폼을 설계했어요. 
+        %     \textit{문서도 코드처럼} 생각하는 마음으로 정적 사이트를 빌드하고 배포하는 파이프라인을 만들었어요. 
+        %   }
+        % \resumeItem{Data Outcome Measures}
+        %   {
+        %     그동안 경험한 데이터팀은 "도와주는" 역할의 이미지가 강했지만, "주도하는" 데이터팀을 꿈꿨습니다.
+        %     데이터가 어떻게 활용되고 있는지 | 데이터가 비즈니스에 어떤 영향을 미쳤는지 측정하는 지표를 수집할 수 있는 자동화 플랫폼을 만들고 운영했어요.
+        %   }
       \resumeItemListEnd
       
 % --------Multiple Positions Heading------------
@@ -157,7 +147,7 @@
         \resumeItem{Metric Store}
           {임직원들에게 다양하고 유용한 지표를 제공하고자 지표저장소를 만들고 운영했습니다. 그들이 보고싶어하는 지표(협의된)를 쉽게 찍어내는 데이터 프로덕트(show metric using cli)도 만들었습니다. 상상속에서 뛰놀던 지표를 만들어볼 수 있는 기회를 제공했어요.}
         \resumeItem{Self-Serve-Data}
-          {원하는 데이터를 데이터 조직에 의존하지 않고 스스로 찾아 볼 수 있도록 환경을 제공했습니다. 도구(BI/디스커버리/워크플로우 오케스트레이샨)들을 컨테이너 환경에 맞게 잘 패킹하고, 단일 진실 공급원을 유지했어요.}
+          {원하는 데이터를 데이터 조직에 의존하지 않고 스스로 찾아 볼 수 있도록 환경을 제공했습니다. 도구(BI/디스커버리/워크플로우 오케스트레이션)들을 컨테이너 환경에 맞게 잘 패킹하고, 단일 진실 공급원을 유지했어요.}
       \resumeItemListEnd
 
     \resumeSubheading
@@ -165,7 +155,7 @@
       {Cloud Operation Engineer}{Nov 2020 -- Sep 2022}
       \resumeItemListStart
         \resumeItem{Cloud Operations}
-          {클라우드 검색 플랫폼 Log \& Crash Search 를 운영했습니다. CSP SLA 를 준수하기 위해 안정적인 서비스를 제공했으며, 서비스에 사용되는 데이터 오프소스들을 가까이서 만져볼 수 있는 경험을 쌓았어요}
+          {클라우드 검색 플랫폼 Log \& Crash Search 를 운영했습니다. CSP SLA 를 준수하기 위해 안정적인 서비스를 제공했으며, 서비스에 사용되는 데이터 오픈소스들을 가까이서 만져볼 수 있는 경험을 쌓았어요}
         \resumeItem{Cloud Service Deployment}
           {NHN Cloud 서비스를 배포하고 CICD 파이프라인을 관리했습니다. 서비스 개발배포(CI/CD)의 큰 라이프사이클을 경험, 개발자들 요구사항을 만족하는 배포 모듈을 유지보수 했습니다}
       \resumeItemListEnd
@@ -180,7 +170,6 @@
 
   \resumeSubHeadingListEnd
 
-
 %-----------PROJECTS-----------------
 \section{Projects}
   \resumeSubHeadingListStart
@@ -192,19 +181,25 @@
       {실시간 데이터와 변경사항 추적을 목표로 개발한 CDC 파이프라인}
     \resumeSubItem{\href{https://www.jx2lee.kr/data/dbt/__/dbt-cicd-pipeline}{dbt cicd pipeline}}
       {dbt 모델 변경 감지 \& 배포까지 자동화한 GitHub Actions 기반 CI/CD 파이프라인}
-    \resumeSubItem{\href{https:///www.jx2lee.kr/career/projects/self-serve-data}{Self-Serve-Data}}
+    \resumeSubItem{\href{https://www.jx2lee.kr/career/projects/self-serve-data}{Self-Serve-Data}}
       {자체 데이터 탐색 및 분석이 가능하도록, 비개발자 대상 Self-Serve 데이터 플랫폼 제공}
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {국민대학교}{성북구, 대한민국}
+      {자연과학대학 수학과; GPA: 3.42}{Mar 2010 -- Feb 2016}
   \resumeSubHeadingListEnd
 
 %
 %--------SKILLS------------
-% \section{Skills}
-% \begin{tabular}{@{} l @{\hspace{2em}} l @{}}
-%   \textbf{Languages}                 & Python, SQL, Rust \\
-%   \textbf{DW/DB}                     & Redshift, BigQuery, MySQL, Oracle \\
-%   \textbf{Container Ochestration}     & Kubernetes, Docker, ArgoCD \& Helm(GitOps) \\
-%   \textbf{Public Cloud}              & AWS, GCP \\
-% \end{tabular}
+\section{Skills}
+\begin{tabular}{@{} l @{\hspace{2em}} l @{}}
+  \textbf{Languages}                 & Python, Rust, SQL \\
+  \textbf{Public Cloud}              & AWS, GCP \\
+\end{tabular}
 
 %-------------------------------------------
 \end{document}
