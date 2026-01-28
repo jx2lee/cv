@@ -107,25 +107,22 @@
       \resumeItemListStart
         \resumeItem{High-volume, Optimized Data Platform}
           {
-            체험하기 힘든 큰 데이터를 다루며 효율적으로 수집/처리하는 영역에 집중했어요.
-            Lakehouse architecture 기반 데이터 플랫폼을 개발했어요. 특히 사용자 혹은 서비스에 어떤 인터페이스로 데이터를 제공할 수 있을지 고민했어요.
+            일일 대용량 데이터를 효율적으로 수집/처리하는 Lakehouse 아키텍처 기반 데이터 플랫폼을 개발했어요.
+            특히 사용자 혹은 서비스에 어떤 인터페이스로 데이터를 제공할 수 있을지 고민하고, 큰 데이터 생명주기(LifeCycle) 를 경험했어요.
           }
         \resumeItem{Interface for DataServing}
           {
-            서비스 DB에서 실행하기 부담스러운 집계를 DW 에 위임, 이를 제공하는 API 를 개발했습니다.
-            역할과 책임을 분리하고자 Reverse ETL 을 이용했고, 모노레포로 구성하여 다른 서비스간 의존성을 제거하여 개발생산성을 높였어요.
+            서비스 DB의 조회 부담을 줄이고자 집계가 필요한 데이터를 DW에 위임하고, 이를 제공하는 API를 개발했어요.
+            Reverse ETL을 도입하여 데이터 서빙의 역할과 책임을 명확히 분리하고, 모노레포 기반으로 서비스 간 의존성을 제거하여 생산성을 높였어요.
           }
-        % \resumeItem{Software Architecture Document}
-        %   {
-        %     CMU SEI에서 제안한 \textit{Software Architecture Document (SAD)} 템플릿을 기반으로 데이터 플랫폼 구성요소와 운영·관리 뷰를 설계했어요. 
-        %     품질속성 중심의 의사결정 관리를 위해 ADR(Architecture Decision Record)도 병행하며 신 구의 조합으로 플랫폼을 설계했어요. 
-        %     \textit{문서도 코드처럼} 생각하는 마음으로 정적 사이트를 빌드하고 배포하는 파이프라인을 만들었어요. 
-        %   }
-        % \resumeItem{Data Outcome Measures}
-        %   {
-        %     그동안 경험한 데이터팀은 "도와주는" 역할의 이미지가 강했지만, "주도하는" 데이터팀을 꿈꿨습니다.
-        %     데이터가 어떻게 활용되고 있는지 | 데이터가 비즈니스에 어떤 영향을 미쳤는지 측정하는 지표를 수집할 수 있는 자동화 플랫폼을 만들고 운영했어요.
-        %   }
+        \resumeItem{Structured Architecture Design}
+          {
+            CMU SEI의 SAD(Software Architecture Document) 템플릿을 기반으로 데이터 플랫폼 아키텍처를 정의하고, ADR(Architecture Decision Record)을 통해 주요 기술 의사결정을 기록 및 관리하며 시스템의 유지보수성과 확장성을 확보했어요.
+          }
+        \resumeItem{Data-driven Team Contribution}
+          {
+            '주도하는' 데이터팀을 목표로, 데이터의 비즈니스 기여도를 측정하고 성과를 추적하는 플랫폼을 만들고 운영했어요. 이를 통해 데이터 기반의 의사결정 문화를 전파했어요.
+          }
       \resumeItemListEnd
       
 % --------Multiple Positions Heading------------
@@ -143,11 +140,20 @@
       {Data Engineer}{Sep 2022 -- Jan 2025}
       \resumeItemListStart
         \resumeItem{Data Warehousing}
-          {거래소 서비스에서 발생한 데이터를 클라우드 데이터웨어하우스에 적재하는 파이프라인을 개발하고 운영했습니다. 테이블 성격에 맞는 수집방식을 고민하고 신뢰할 수 있는 데이터를 제공하는 Data as a Product 에 집중했어요.}
+          {
+            거래소 서비스에서 발생한 데이터를 클라우드 데이터웨어하우스에 적재하는 파이프라인을 개발하고 운영했어요.
+            테이블 성격에 맞는 수집방식을 고민하고 신뢰할 수 있는 데이터를 제공하는 Data as a Product 에 집중했어요.
+          }
         \resumeItem{Metric Store}
-          {임직원들에게 다양하고 유용한 지표를 제공하고자 지표저장소를 만들고 운영했습니다. 그들이 보고싶어하는 지표(협의된)를 쉽게 찍어내는 데이터 프로덕트(show metric using cli)도 만들었습니다. 상상속에서 뛰놀던 지표를 만들어볼 수 있는 기회를 제공했어요.}
+          {
+            임직원들에게 다양하고 유용한 지표를 제공하고자 지표저장소를 만들고 운영했어요.
+            그들이 보고싶어하는 지표(협의된)를 쉽게 찍어내는 데이터 프로덕트(show metric using cli)도 만들었어요. 상상속에서 뛰놀던 지표를 만들어볼 수 있는 기회를 제공했어요.
+          }
         \resumeItem{Self-Serve-Data}
-          {원하는 데이터를 데이터 조직에 의존하지 않고 스스로 찾아 볼 수 있도록 환경을 제공했습니다. 도구(BI/디스커버리/워크플로우 오케스트레이션)들을 컨테이너 환경에 맞게 잘 패킹하고, 단일 진실 공급원을 유지했어요.}
+          {
+            원하는 데이터를 데이터 조직에 의존하지 않고 스스로 찾아 볼 수 있도록 환경을 제공했어요.
+            도구(BI/디스커버리/워크플로우 오케스트레이션)들을 컨테이너 환경에 맞게 잘 패킹하고, 단일 진실 공급원을 유지했어요.
+          }
       \resumeItemListEnd
 
     \resumeSubheading
@@ -155,9 +161,15 @@
       {Cloud Operation Engineer}{Nov 2020 -- Sep 2022}
       \resumeItemListStart
         \resumeItem{Cloud Operations}
-          {클라우드 검색 플랫폼 Log \& Crash Search 를 운영했습니다. CSP SLA 를 준수하기 위해 안정적인 서비스를 제공했으며, 서비스에 사용되는 데이터 오픈소스들을 가까이서 만져볼 수 있는 경험을 쌓았어요}
+          {
+            클라우드 검색 플랫폼 Log \& Crash Search 를 운영했어요.
+            CSP SLA 를 준수하기 위해 안정적인 서비스를 제공했으며, 서비스에 사용되는 데이터 오픈소스들을 가까이서 만져볼 수 있는 경험을 쌓았어요.
+          }
         \resumeItem{Cloud Service Deployment}
-          {NHN Cloud 서비스를 배포하고 CICD 파이프라인을 관리했습니다. 서비스 개발배포(CI/CD)의 큰 라이프사이클을 경험, 개발자들 요구사항을 만족하는 배포 모듈을 유지보수 했습니다}
+          {
+            NHN Cloud 서비스를 배포하고 CICD 파이프라인을 관리했어요.
+            서비스 개발배포(CI/CD)의 큰 라이프사이클을 경험, 개발자들 요구사항을 만족하는 배포 모듈을 유지보수 했어요.
+          }
       \resumeItemListEnd
 
     \resumeSubheading
@@ -165,7 +177,9 @@
       {Technical Support Engineer}{Aug 2018 -- Nov 2020}
       \resumeItemListStart
         \resumeItem{Technical Support}
-          {고객의 기술 문제를 해결하고, 제품 사용에 대한 교육을 제공했습니다. 클라이언트 와의 커뮤니케이션을 통해 제품 피드백을 수집하고 이를 개발팀에 전달하며, 프로젝트와 PoC 를 통해 제품 개선에 기여했습니다}
+          {
+            DBMS 제품 기술 지원 및 고객사 대상 PoC를 수행하며 데이터 기반 문제 해결 역량을 길렀어요.
+          }
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
@@ -198,7 +212,9 @@
 \section{Skills}
 \begin{tabular}{@{} l @{\hspace{2em}} l @{}}
   \textbf{Languages}                 & Python, Rust, SQL \\
-  \textbf{Public Cloud}              & AWS, GCP \\
+  \textbf{Public Cloud}              & AWS (EKS, MSK, S3), GCP (BigQuery, GCS, Composer) \\
+  \textbf{Orchestration}             & Airflow, Argo Workflows \\
+  \textbf{Data Streaming}            & Kafka, Debezium \\
 \end{tabular}
 
 %-------------------------------------------
