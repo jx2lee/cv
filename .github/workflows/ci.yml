@@ -22,14 +22,7 @@ jobs:
           options: -v ${{ github.workspace }}:/data
           run: |
             cd data
-            pdflatex resume.tex
-            pdflatex work_experience.tex
-      - name: Generate PNG thumbnail from PDF
-        run: |
-          set -euo pipefail
-          cd ${{ github.workspace }}
-          test -f resume.pdf || { echo "PDF not found"; ls -la; exit 1; }
-          pdftoppm -png -singlefile -rx 200 -ry 200 resume.pdf resume
+            make all
       - uses: stefanzweifel/git-auto-commit-action@v5
         with:
           commit_message: Apply pdflatex changes
