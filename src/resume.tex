@@ -1,0 +1,221 @@
+%-------------------------
+% Resume in LateX
+% Author : Sourabh Bajaj
+% License : MIT
+%------------------------
+
+\documentclass[letterpaper,11pt]{article}
+
+\usepackage{latexsym}
+\usepackage[empty]{fullpage}
+\usepackage{titlesec}
+\usepackage{marvosym}
+\usepackage[usenames,dvipsnames]{color}
+\usepackage{verbatim}
+\usepackage{enumitem}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage[english]{babel}
+\usepackage{tabularx}
+\usepackage{kotex}
+\input{glyphtounicode}
+
+\pagestyle{fancy}
+\fancyhf{} % Clear all header and footer fields
+\fancyfoot{}
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Adjust margins
+\addtolength{\oddsidemargin}{-0.5in}
+\addtolength{\evensidemargin}{-0.5in}
+\addtolength{\textwidth}{1in}
+\addtolength{\topmargin}{-.5in}
+\addtolength{\textheight}{1.0in}
+
+\urlstyle{same}
+
+\raggedbottom
+\raggedright
+\setlength{\tabcolsep}{0in}
+
+% Sections formatting
+\titleformat{\section}{
+  \vspace{-4pt}\scshape\raggedright\large
+}{}{0em}{}[\color{black}\titlerule \vspace{-5pt}]
+
+% Ensure that generate PDF is machine readable/ATS parsable
+\pdfgentounicode=1
+
+%-------------------------
+% Custom commands
+\newcommand{\resumeItem}[2]{
+  \item\small{
+    \textbf{#1}{: #2 \vspace{-2pt}}
+  }
+}
+
+% Just in case someone needs a heading that does not need to be in a list
+\newcommand{\resumeHeading}[4]{
+    \begin{tabular*}{0.99\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubheading}[4]{
+  \vspace{-1pt}\item
+    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
+      \textbf{#1} & #2 \\
+      \textit{\small#3} & \textit{\small #4} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubSubheading}[2]{
+    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
+      \textit{\small#1} & \textit{\small #2} \\
+    \end{tabular*}\vspace{-5pt}
+}
+
+\newcommand{\resumeSubItem}[2]{\resumeItem{#1}{#2}\vspace{-4pt}}
+
+\renewcommand{\labelitemii}{$\circ$}
+
+\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
+\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
+\newcommand{\resumeItemListStart}{\begin{itemize}}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+
+%-------------------------------------------
+%%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\begin{document}
+
+%----------HEADING-----------------
+\begin{tabular*}{\textwidth}{l@{\extracolsep{\fill}}r}
+  \textbf{\Large 이재준} & Email: \href{mailto:dev.jaejun.lee.1991@gmail.com}{dev.jaejun.lee.1991@gmail.com} \\
+  \href{https://www.jx2lee.kr}{jx2lee.kr} \\
+\end{tabular*}
+
+%-----------EXPERIENCE-----------------
+\section{Experience}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {\href{https://www.jx2lee.kr/career/bithumb}{Bithumb}}{강남구, 대한민국}
+      {Software Engineer, Data}{Jan 2025 -- Present}
+      \resumeItemListStart
+        \resumeItem{High-volume, Optimized Data Platform}
+          {
+            일일 대용량 데이터를 효율적으로 수집/처리하는 Lakehouse 아키텍처 기반 데이터 플랫폼을 개발했어요.
+            특히 사용자 혹은 서비스에 어떤 인터페이스로 데이터를 제공할 수 있을지 고민하고, 큰 데이터 생명주기(LifeCycleㅡ수집/가공/딜리버리) 를 경험했어요.
+          }
+        \resumeItem{Interface of DataServing}
+          {
+            서비스 DB의 조회 부담을 줄이고자 집계가 필요한 데이터를 DW에 위임하고, 이를 제공하는 API를 개발했어요.
+            Reverse ETL을 도입하여 데이터 서빙의 역할과 책임을 명확히 분리하고, 모노레포로 서비스 의존성을 제거하여 생산성과 안정성을 높였어요.
+          }
+        \resumeItem{Architecture Documents Design}
+          {
+            CMU SEI의 SAD(Software Architecture Document) 템플릿을 기반으로 데이터 플랫폼 아키텍처를 정의하고, ADR(Architecture Decision Record)을 통해 주요 기술 의사결정을 기록 및 관리하며 시스템의 유지보수성과 확장성을 확보했어요.
+          }
+        \resumeItem{Data Literacy Evangelism}
+          {
+            "데이터는 어렵다"는 편견을 깨고, 누구나 데이터와 친해질 수 있도록 '데이터 전도사' 역할을 자처했어요. 동료들이 데이터의 가치를 체감하고 업무에 더 잘 활용할 수 있도록 돕는 활동들을 주도하며 긍정적인 데이터 문화를 만들었어요.
+          }
+      \resumeItemListEnd
+      
+% --------Multiple Positions Heading------------
+  %  \resumeSubSubheading
+  %   {Software Engineer I}{Oct 2014 -- Sep 2016}
+  %   \resumeItemListStart
+  %      \resumeItem{Apache Beam}
+  %        {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
+  %   \resumeItemListEnd
+
+%-------------------------------------------
+
+    \resumeSubheading
+      {\href{https://www.jx2lee.kr/career/coinone}{Coinone}}{영등포구, 대한민국}
+      {Data Engineer}{Sep 2022 -- Jan 2025}
+      \resumeItemListStart
+        \resumeItem{Data Warehousing}
+          {
+            거래소 서비스에서 발생한 데이터를 클라우드 데이터웨어하우스에 적재하는 파이프라인을 개발하고 운영했어요.
+            테이블 성격에 맞는 수집방식을 고민하고 신뢰할 수 있는 데이터를 제공하는 Data as a Product 에 집중했어요.
+          }
+        \resumeItem{Metric Store}
+          {
+            임직원들에게 다양하고 유용한 지표를 제공하고자 지표저장소를 만들고 운영했어요.
+            그들이 보고싶어하는 지표(협의된)를 쉽게 찍어내는 데이터 프로덕트(show metric using cli)도 만들었어요. 상상속에서 뛰놀던 지표를 만들어볼 수 있는 기회를 제공했어요.
+          }
+        \resumeItem{Self-Serve-Data}
+          {
+            원하는 데이터를 데이터 조직에 의존하지 않고 스스로 찾아 볼 수 있도록 환경을 제공했어요.
+            도구(BI/디스커버리/워크플로우 오케스트레이션)들을 컨테이너 환경에 맞게 잘 패킹하고, 단일 진실 공급원을 유지했어요.
+          }
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://www.jx2lee.kr/career/nhn-enterprise}{NHN Enterprise}}{분당구, 대한민국}
+      {Cloud Operation Engineer}{Nov 2020 -- Sep 2022}
+      \resumeItemListStart
+        \resumeItem{Cloud Operations}
+          {
+            클라우드 검색 플랫폼 Log \& Crash Search 를 운영했어요.
+            CSP SLA 를 준수하기 위해 안정적인 서비스를 제공했으며, 서비스에 사용되는 데이터 오픈소스들을 가까이서 만져볼 수 있는 경험을 쌓았어요.
+          }
+        \resumeItem{Cloud Service Deployment}
+          {
+            NHN Cloud 서비스를 배포하고 CICD 파이프라인을 관리했어요.
+            서비스 개발배포(CI/CD)의 큰 라이프사이클을 경험, 개발자들 요구사항을 만족하는 배포 모듈을 유지보수 했어요.
+          }
+      \resumeItemListEnd
+
+    \resumeSubheading
+      {\href{https://www.jx2lee.kr/career/tmax}{TmaxData}}{분당구, 대한민국}
+      {Technical Support Engineer}{Aug 2018 -- Nov 2020}
+      \resumeItemListStart
+        \resumeItem{Technical Support}
+          {
+            DBMS 제품 기술 지원 및 고객사 대상 PoC를 수행하며 데이터 기반 문제 해결 역량을 길렀어요.
+          }
+      \resumeItemListEnd
+
+  \resumeSubHeadingListEnd
+
+%-----------PROJECTS-----------------
+\section{Projects}
+  \resumeSubHeadingListStart
+    \resumeSubItem{Platform Architecture \& DX}
+      {개발자 경험(DX)을 중심으로 Monorepo, SAD/ADR 등을 도입하여 데이터 플랫폼 아키텍처를 설계하고 문서기반 문화(Document driven culture)를 전파}
+    \resumeSubItem{Data as a Product \& Governance}
+      {Data API 서버를 개발하고 Data Quality Gate를 도입하여 신뢰도 높은 데이터 제품제공 기반 마련}
+    \resumeSubItem{Real-time Data Pipelines}
+      {Debezium Connector, Kafka Connect(Source/Sink) 를 도입하여 실시간 데이터 수집부터 변환, 배포까지의 과정을 개선하고 자동화}
+    \resumeSubItem{Data Enablement}
+      {사용자가 직접 데이터를 탐색하고 활용할 수 있는 Self-Serve 데이터 플랫폼 운영}
+    \resumeSubItem{Open Source Contributions}
+      {주요 오픈소스 프로젝트에 기여하며 기술 생태계 발전에 공헌함.}
+  \resumeSubHeadingListEnd
+
+%-----------EDUCATION-----------------
+\section{Education}
+  \resumeSubHeadingListStart
+    \resumeSubheading
+      {국민대학교}{성북구, 대한민국}
+      {자연과학대학 수학과; GPA: 3.42}{Mar 2010 -- Feb 2016}
+  \resumeSubHeadingListEnd
+
+%
+%--------SKILLS------------
+% \section{Skills}
+% \begin{tabular}{@{} l @{\hspace{2em}} l @{}}
+%   \textbf{Languages}                 & Python, Rust, SQL \\
+%   \textbf{Public Cloud}              & AWS (EKS, MSK, S3), GCP (BigQuery, GCS, Composer) \\
+%   \textbf{Orchestration}             & Airflow, Argo Workflows \\
+%   \textbf{Data Streaming}            & Kafka, Debezium \\
+% \end{tabular}
+
+%-------------------------------------------
+\end{document}
