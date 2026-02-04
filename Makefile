@@ -7,6 +7,7 @@ PNG_FILES := $(patsubst %.pdf,%.png,$(PDF_FILES))
 
 # Generates all pdf and png files when 'make' or 'make all' is run.
 all: $(PDF_FILES) $(PNG_FILES)
+	@echo "Building PDFs: $(PDF_FILES)"
 
 # PDF generation rule: Creates A.pdf from src/A.tex.
 %.pdf: src/%.tex
