@@ -10,7 +10,7 @@ all: $(PDF_FILES) $(PNG_FILES)
 
 # PDF generation rule: Creates A.pdf from src/A.tex.
 %.pdf: src/%.tex
-	pdflatex -output-directory=$(@D) $<
+	TEXINPUTS=.:./assets: pdflatex -output-directory=$(@D) $<
 
 # PNG generation rule: Creates A.png from A.pdf.
 %.png: %.pdf
