@@ -1,9 +1,33 @@
+.DEFAULT_GOAL := help
+
 # Find .tex files in the src directory.
 TEX_FILES := $(wildcard src/*.tex)
 # Define .pdf files to be generated from .tex files (e.g., src/resume.tex -> resume.pdf)
 PDF_FILES := $(patsubst src/%.tex,%.pdf,$(TEX_FILES))
 # Only convert resume.pdf to png for the README.
 PNG_FILES := resume.png
+
+# Shows available make targets and their descriptions.
+help:
+	@awk '\
+		/^[[:space:]]*#/ { \
+			sub(/^[[:space:]]*# ?/, "", $$0); \
+			comment = $$0; \
+			next; \
+		} \
+		/^[a-zA-Z0-9_.-]+[[:space:]]*[:+?]?=/ { \
+			comment = ""; \
+			next; \
+		} \
+		/^[a-zA-Z0-9_%.-]+:([^=]|$$)/ { \
+			target = $$1; \
+			sub(/:$$/, "", target); \
+			printf "\033[36m%-30s\033[0m %s\n", target, comment; \
+			comment = ""; \
+			next; \
+		} \
+		{ comment = "" } \
+	' $(MAKEFILE_LIST)
 
 # Generates all pdf and png files when 'make' or 'make all' is run.
 all: $(PDF_FILES) $(PNG_FILES)
