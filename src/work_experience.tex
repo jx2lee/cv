@@ -124,6 +124,116 @@
 
 %-----------PROJECTS-----------------
 
+\ProjectTitle{데이터 플랫폼 컨테이너 운영 환경 전환}{2026.04 - }
+
+\textbf{Description}: 데이터 플랫폼 운영 환경을 Kubernetes/EKS 기반 컨테이너 환경으로 옮기는 작업을 주도했다.
+플랫폼 컴포넌트의 배포 구성을 Helm Chart 로 관리하고, ArgoCD 기반 GitOps 패턴을 적용할 수 있도록 배포 구조를 정리했다.
+
+\resumeSubProjectListStart
+  % --- Problem ---
+  \resumeSubProject{\textbf{Problem}}{%
+    \resumeSubBulletsStart
+      \item 데이터 플랫폼 컴포넌트 운영이 컨테이너 기반으로 바뀌면서 배포 자산을 코드로 관리할 필요가 생김
+      \item Managed 서비스 이용 및 비 컨테이너 환경으로 구성된 플랫폼으로 빗경별 차이를 추적하기 어렵고 운영 실수 가능성이 높았음
+      \item 플랫폼 운영 컴포넌트가 늘어날수록 배포 방식, Secret 관리, 환경별 설정을 같은 기준으로 유지하기 어려움
+    \resumeSubBulletsEnd
+  }
+
+  % --- Action ---
+  \resumeSubProject{\textbf{Action}}{%
+    \resumeSubBulletsStart
+      \item EKS 클러스터 신규 구성
+      \item Kubernetes/EKS 운영을 전제로 Helm Chart 와 ArgoCD Application/ApplicationSet 구조 구성
+      \item ArgoCD, AWS Load Balancer Controller, Secrets Store CSI Driver 등 플랫폼 운영 컴포넌트의 Chart 및 환경별 values 정리
+      \item Observability 를 위한 Datadog 활용(datadog agent operator)
+    \resumeSubBulletsEnd
+  }
+
+  % --- Result ---
+  \resumeSubProject{\textbf{Result}}{%
+    \resumeSubBulletsStart
+      \item 데이터 플랫폼 컴포넌트를 Kubernetes/Helm 기반으로 운영할 수 있는 배포 자산 구조를 마련
+      \item 환경별 values 와 Secret 사용 여부를 함께 점검할 수 있어 배포 전 검토 부담을 줄임
+      \item 신규 플랫폼 컴포넌트 추가 시 Helm values 와 ArgoCD 매니페스트를 기준으로 배포 흐름을 확장할 수 있게 됨
+    \resumeSubBulletsEnd
+  }
+
+  % --- Impact ---
+  \resumeSubProject{\textbf{Impact}}{%
+    \resumeSubBulletsStart
+      \item 데이터 플랫폼 운영 방식을 서버 중심에서 컨테이너 중심으로 옮기는 전환점 마련
+      \item Airflow 중심의 파이프라인 운영 경험을 넘어 Kubernetes, Helm, ArgoCD, Secret 관리까지 포함한 플랫폼 운영 역량 확보
+      \item 이후 Flink, Kafka Connect, 플랫폼 운영 컴포넌트에도 같은 컨테이너 운영 패턴을 적용할 수 있는 토대 확보
+    \resumeSubBulletsEnd
+  }
+
+  % --- Self-reflection ---
+  \resumeSubProject{\textbf{Self-Reflection}}{%
+    \resumeSubBulletsStart
+      \item 컨테이너 전환은 애플리케이션을 이미지로 만드는 일에 그치지 않고, 배포 방식과 운영 설정 관리까지 함께 바꾸는 작업임을 체감
+      \item Helm Chart, ArgoCD, Secret 관리가 맞물려야 안정적인 플랫폼 운영이 가능하다는 점을 배움
+      \item 데이터 엔지니어링 업무에서도 Kubernetes 기반 운영 이해가 중요해지고 있음을 실무적으로 경험
+    \resumeSubBulletsEnd
+  }
+\resumeSubProjectListEnd
+
+%-------------------------------------------
+\ProjectTitle{Managed Flink 기반 CDC Iceberg Sink 개발}{2026.04 - 2026.05}
+
+\textbf{Description}: Airflow orchestration 코드와 분리해 Managed Flink 애플리케이션을 관리할 수 있는 구조를 만들었다.
+Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하는 Sink 애플리케이션을 개발했고,
+changelog/materialized 적재 모드와 Glue Catalog, S3 warehouse naming rule 을 함께 정리했다.
+
+\resumeSubProjectListStart
+  % --- Problem ---
+  \resumeSubProject{\textbf{Problem}}{%
+    \resumeSubBulletsStart
+      \item CDC 이벤트를 장기 분석이 가능한 Iceberg 테이블로 적재할 공통 애플리케이션 구조가 필요했음
+      \item Kafka topic, Glue database, S3 warehouse 경로가 환경/DB 타입별로 달라 명명 규칙과 설정 주입 방식을 정리해야 했음
+      \item Flink 애플리케이션을 Airflow DAG 코드와 분리하여 빌드/테스트/배포 가능한 단위로 관리할 필요가 있었음
+    \resumeSubBulletsEnd
+  }
+
+  % --- Action ---
+  \resumeSubProject{\textbf{Action}}{%
+    \resumeSubBulletsStart
+      \item Gradle multi-module 기반 Managed Flink 애플리케이션 구조 구성 및 Shadow JAR 빌드 체계 마련
+      \item Flink Table API 기반 Sink 구현: Kafka CDC 이벤트를 읽어 Iceberg 테이블로 적재
+      \item changelog/materialized 적재 모드 지원으로 원본 이벤트 누적과 최신 상태 테이블 구성을 분리
+      \item AWS Managed Flink runtime properties, CLI args, 기본 properties 파일을 조합해 설정을 주입하도록 설계
+      \item Glue database, catalog alias, S3 warehouse path naming rule 을 환경/DB 타입 기준으로 정리
+    \resumeSubBulletsEnd
+  }
+
+  % --- Result ---
+  \resumeSubProject{\textbf{Result}}{%
+    \resumeSubBulletsStart
+      \item Airflow orchestration 과 Flink stream processing 책임을 분리하여 애플리케이션 관리 경계를 명확히 함
+      \item CDC topic 을 Iceberg 기반 분석 테이블로 적재하는 재사용 가능한 Sink 애플리케이션 확보
+      \item 환경별 설정과 테이블 naming rule 을 코드/설정으로 관리하여 운영 실수 가능성을 줄임
+    \resumeSubBulletsEnd
+  }
+
+  % --- Impact ---
+  \resumeSubProject{\textbf{Impact}}{%
+    \resumeSubBulletsStart
+      \item Kafka CDC, Flink, Iceberg 로 이어지는 Lakehouse 적재 패턴을 구현할 기술 기반을 직접 구축
+      \item 배치 중심 Airflow 운영 경험에서 스트리밍 처리와 테이블 포맷 운영까지 역할 확장
+      \item Flink, Iceberg, Glue Catalog, S3 warehouse 를 연결하며 실시간 데이터 플랫폼 아키텍처 이해도 향상
+    \resumeSubBulletsEnd
+  }
+
+  % --- Self-reflection ---
+  \resumeSubProject{\textbf{Self-Reflection}}{%
+    \resumeSubBulletsStart
+      \item Flink 애플리케이션은 DAG 스크립트와 달리 빌드 산출물, 런타임 설정, 테이블 스키마를 함께 고려해야 함을 체감
+      \item CDC 이벤트를 Iceberg 테이블로 적재하면서 append-only 로그와 materialized view 성격의 테이블 설계 차이를 더 명확히 이해
+      \item 데이터 파이프라인 운영 범위가 orchestration 을 넘어 stream processing, table format, catalog 관리로 확장됨을 경험
+    \resumeSubBulletsEnd
+  }
+\resumeSubProjectListEnd
+
+%-------------------------------------------
 \ProjectTitle{개발자 경험 주도 데이터플랫폼 모노레포 도입}{2025.12 - 2026.02}
 
 \textbf{Description:}
