@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph aws["AWS"]
+        subgraph eks["AWS EKS"]
+            subgraph source_connect["Kafka Connect Cluster"]
+                sink("BigQuery SinkConnector")
+                source("Debezium SourceConnector")
+            end
+
+        end
+        
+        subgraph rds["AWS RDS"]
+            exchange[(exchange)]
+        end
+        subgraph msk["AWS MSK"]
+            kafka[(kafka)]
+        end
+        amp["Amazon Managed Service for Promethus"]
+        amg["Amazon Managed Service for Grafana"]
+    end
+
+    subgraph gcp["Google Cloud Platform"]
+        bigquery[("BigQuery")]
+    end
+    users
+    
+    rds --> |read| source --> |produce| msk --> |consume| sink --> |write| gcp
+    source --> |collect metrics| amp --> |dashboard & alert| amg --> |watch| users

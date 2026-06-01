@@ -1,0 +1,35 @@
+flowchart LR
+
+subgraph R["single Git repository"]
+  direction TB
+
+  subgraph LIB["Shared Libraries (libs/)"]
+    direction TB
+    L1["libs/common"]
+    L2["libs/lib-a"]
+    L3["libs/lib-b"]
+  end
+
+  REF[["editable / symlinked dependency<br>(uv workspace link)"]]
+
+  subgraph WS["uv Workspaces"]
+    direction LR
+    W1["workspace: consumption/*"]
+    W2["workspace: ingestion/*"]
+    W3["workspace: warehouse/*"]
+  end
+
+  L1 --> REF
+  L2 --> REF
+  L3 --> REF
+
+  REF --> W1
+  REF --> W2
+  REF --> W3
+
+  PYL["pyproject.toml (root)"]
+  UVL["uv.lock / workspace metadata"]
+
+  PYL --> WS
+  UVL --> WS
+end

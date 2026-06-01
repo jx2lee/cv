@@ -1,0 +1,17 @@
+flowchart BT
+    subgraph eks["AWS EKS"]
+        subgraph action_pod["Action Pod"]
+            docker["docker container"]
+            runner["runner container"]
+            dbt_docker["dbt runner"]
+        end
+    end
+    bigquery[(BigQuery)]
+
+    users --> |push event| docker
+    users --> |push event| runner
+    docker --> |run| dbt_docker
+    runner --> |lint & jira integration| runner
+    dbt_docker --> |transform| bigquery
+
+    classDef main stroke:red,stroke-width:2px;

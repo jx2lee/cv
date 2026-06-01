@@ -1,0 +1,23 @@
+flowchart BT
+dev[Developer]
+mr[Merge Request]
+repo[(GitLab Repository)]
+
+subgraph gitlab[GitLab CI/CD]
+detect["Check diff<br>(doc/*, mkdocs.yml)"]
+docsJob[mkdocs build<br> upload to S3]
+commentJob[Post MR comment\nPlease check docs]
+end
+
+s3[(S3 Static Site)]
+cf[(CloudFront CDN)]
+user[Internal Users]
+
+dev -->|push / open MR| repo --> mr
+mr -->|pipeline triggered| gitlab
+
+gitlab --> detect
+detect -->|docs changed| docsJob --> s3 --> cf --> user
+detect -->|no docs changes| commentJob --> mr
+
+mr -->|merged| docsJob
