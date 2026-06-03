@@ -1,0 +1,29 @@
+flowchart BT
+subgraph source
+oracle[(oracle)]
+mysql[(oracle)]
+end
+
+subgraph source_connector["MSK Connector"]
+debezium("debeizum<br/>source connector")
+end
+
+msk("AWS Managed Kafka")
+
+subgraph sink["Managed Flink"]
+materialized_app("materialized application")
+changedlog_app("changelog application")
+end
+
+subgraph iceberg
+glue("Glue Catalog")
+end
+
+subgraph qe["query engine"]
+reshift(redshift<br>spectrum)
+starrocks(starrocks)
+end
+
+source <-- extract --> source_connector --> |publish| msk
+msk --> |consume| sink --> iceberg
+qe --> |use| iceberg
