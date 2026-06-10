@@ -12,6 +12,7 @@
 \usepackage{amsmath}
 \usepackage{graphicx}
 \usepackage{capt-of}
+\graphicspath{{assets/}{src/assets/}}
 
 \usepackage{markdown}
 \usepackage{enumitem}
@@ -794,13 +795,13 @@ Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하�
 
 \begin{minipage}[c][\appendixDiagramSlotHeight][c]{\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=\dimexpr\appendixDiagramSlotHeight-2\baselineskip\relax,keepaspectratio]{./assets/near-realtime-pipeline.png}
+\includegraphics[width=\linewidth,height=\dimexpr\appendixDiagramSlotHeight-2\baselineskip\relax,keepaspectratio]{near-realtime-pipeline.png}
 \captionof{figure}{Near Realtime Pipeline}
 \end{minipage}
 
 \begin{minipage}[c][\appendixDiagramSlotHeight][c]{\textwidth}
 \centering
-\includegraphics[width=\linewidth,height=\dimexpr\appendixDiagramSlotHeight-2\baselineskip\relax,keepaspectratio]{./assets/data-api-diagram.png}
+\includegraphics[width=\linewidth,height=\dimexpr\appendixDiagramSlotHeight-2\baselineskip\relax,keepaspectratio]{data-api-diagram.png}
 \captionof{figure}{Near Realtime Pipeline-CICD}
 \end{minipage}
 \endgroup
@@ -809,7 +810,7 @@ Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하�
 \vspace*{\fill}
 \begin{center}
 \centering
-\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{./assets/sad-diagram.png}
+\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{sad-diagram.png}
 \captionof{figure}{SAD CI/CD Pipeline Overview}
 \end{center}
 \vspace*{\fill}
@@ -818,7 +819,7 @@ Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하�
 \vspace*{\fill}
 \begin{center}
 \centering
-\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{./assets/data-api-diagram.png}
+\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{data-api-diagram.png}
 \captionof{figure}{Data API Diagram}
 \end{center}
 \vspace*{\fill}
@@ -827,7 +828,7 @@ Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하�
 \vspace*{\fill}
 \begin{center}
 \centering
-\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{./assets/cdc-diagram.png}
+\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{cdc-diagram.png}
 \captionof{figure}{CDC Pipeline Overview}
 \end{center}
 \vspace*{\fill}
@@ -836,7 +837,7 @@ Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하�
 \vspace*{\fill}
 \begin{center}
 \centering
-\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{./assets/migration-kafka-connect-diagram.png}
+\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{migration-kafka-connect-diagram.png}
 \captionof{figure}{Kafka Connect Overview}
 \end{center}
 \vspace*{\fill}
@@ -845,7 +846,7 @@ Kafka CDC 이벤트를 Flink Table API로 읽어 Iceberg 테이블에 적재하�
 \vspace*{\fill}
 \begin{center}
 \centering
-\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{./assets/dbt-cicd-diagram.png}
+\includegraphics[width=\textwidth,height=0.82\textheight,keepaspectratio]{dbt-cicd-diagram.png}
 \captionof{figure}{dbt CICD pipeline Overview}
 \end{center}
 \vspace*{\fill}

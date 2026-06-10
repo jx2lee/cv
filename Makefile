@@ -41,7 +41,7 @@ diagrams: $(DIAGRAM_PNG_FILES)
 
 # PDF generation rule: Creates A.pdf from src/A.tex.
 %.pdf: src/%.tex
-	TEXINPUTS=.:./assets: pdflatex -output-directory=$(@D) $<
+	TEXINPUTS=.:src:src/assets: pdflatex -output-directory=$(@D) $<
 
 # PNG generation rule: Creates A.png from A.pdf.
 %.png: %.pdf
