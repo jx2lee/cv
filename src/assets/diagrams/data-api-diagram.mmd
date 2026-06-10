@@ -1,0 +1,14 @@
+flowchart LR
+subgraph source
+svc_db[(databases)]
+end
+
+airflow[airflow]
+
+redshift[(redshift)]
+mysql[(mysql)]
+api_server(api server)
+
+svc_db -->|1.1 extract| airflow -->|1.2 load/transform| redshift
+redshift --> |2.1 reverse ETL| airflow --> |2.2 copy/load| mysql
+mysql --- api_server

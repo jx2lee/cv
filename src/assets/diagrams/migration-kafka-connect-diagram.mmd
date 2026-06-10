@@ -1,0 +1,27 @@
+flowchart TB
+    subgraph aws["AWS"]
+        subgraph account_cluster["ACCOUNT MSK"]
+            direction LR
+            broker_1[(broker1)]
+            broker_2[(broker2)]
+            broker_3[(broker3)]
+        end
+    
+        subgraph eks["EKS"]
+            subgraph connect_cluster["Kafka Connect"]
+                worker_1["worker1"]
+                worker_2["worker2"]
+            end
+            subgraph connect_web["Kafka Connect UI"]
+            end
+        end
+        github["GitHub"]    
+    end
+    bigquery[(BigQuery)]
+
+    account_cluster --> |consume| connect_cluster --> |write| bigquery
+    github -.- |manage helm| connect_cluster
+    github -.- |manage helm| connect_web
+    connect_web -.- |created connector| connect_cluster
+
+    linkStyle 0,1 stroke:red,stroke-width:2px;

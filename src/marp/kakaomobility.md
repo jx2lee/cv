@@ -61,7 +61,7 @@ style: |
 p { text-align: center; }
 </style> -->
 
-![height:500px](../../assets/migration-kafka-connect-diagram.png)
+![height:500px](../assets/migration-kafka-connect-diagram.png)
 
 ---
 
@@ -107,11 +107,11 @@ p { text-align: center; }
 
 https://github.com/confluentinc/kafka-connect-bigquery/pull/361
 
-![height:200px](../../assets/marp/contribution-001.png)
+![height:200px](../assets/marp/contribution-001.png)
 
 https://github.com/christian-edelsbrunner/kafka-connect-transform-tojsonstring/pull/18
 
-![height:200px](../../assets/marp/contribution-002.png)
+![height:200px](../assets/marp/contribution-002.png)
 
 ---
 
@@ -120,7 +120,7 @@ https://github.com/christian-edelsbrunner/kafka-connect-transform-tojsonstring/p
 <!-- <style>
 p { text-align: center; }
 </style> -->
-![height:500px](../../assets/cdc-diagram.png)
+![height:500px](../assets/cdc-diagram.png)
 
 ---
 
@@ -160,7 +160,7 @@ p { text-align: center; }
 
 # 3. 데이터 플랫폼 아키텍처의 재설계
 
-![height:500px](../../assets/sad-diagram.png)
+![height:500px](../assets/sad-diagram.png)
 
 ---
 
@@ -240,10 +240,10 @@ p { text-align: center; }
 
 # Appendix. Data API: 데이터 서빙까지 데이터의 end to end 경험
 
-![height:500px](../../assets/data-api-diagram.png)
+![height:500px](../assets/data-api-diagram.png)
 
 ---
 
-![height:300px](../../assets/marp/example-001.png)
+![height:300px](../assets/marp/example-001.png)
 
-![height:300px](../../assets/marp/example-002.png)
+![height:300px](../assets/marp/example-002.png)
