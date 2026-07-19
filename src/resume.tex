@@ -78,8 +78,10 @@
 
 \newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=*]}
 \newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
+\newcommand{\resumeItemListStart}{\begin{itemize}[leftmargin=*, itemsep=3pt, topsep=3pt, parsep=0pt]}
+\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-2pt}}
+\newcommand{\resumeSubItemListStart}{\begin{itemize}[leftmargin=1.5em, itemsep=3pt, topsep=3pt, parsep=0pt]}
+\newcommand{\resumeSubItemListEnd}{\end{itemize}\vspace{-2pt}}
 
 %-------------------------------------------
 %%%%%%  CV STARTS HERE  %%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -109,11 +111,11 @@
 % --------SKILLS------------
 \section{Technical Skills}
 \begin{tabularx}{\textwidth}{@{} l @{\hspace{1.5em}} >{\raggedright\arraybackslash}X @{}}
-  \textbf{Data Engineering}        & Workflow Orchestration(Airflow, Airbyte), dbt, Open Table Format, Kafka Connect, Debezium \\
-  \textbf{Cloud}                   & AWS(Redshift, Glue, EKS, MSK, S3), GCP(BigQuery, GCS) \\
+  \textbf{Data Engineering}        & Workflow Orchestration(Airflow), dbt, Open Table Format(Iceberg), Kafka Connect, Debezium \\
   \textbf{Container Orchestration} & Kubernetes, Docker \\
-  \textbf{CI|CD}                   & Github Actions|Gitlab CI/CD, Helm/ArgoCD \\
-  \textbf{Languages}               & Python, SQL, Rust, Java \\
+  \textbf{Cloud}                   & AWS(Redshift, Glue, EKS, MSK, S3), GCP(BigQuery, GCS) \\
+  \textbf{DevOps}                   & Github Actions|Gitlab CI/CD, Helm/ArgoCD \\
+  \textbf{Languages}               & Python, SQL, Golang, Java \\
 \end{tabularx}
 
 %-----------EXPERIENCE-----------------
@@ -123,55 +125,73 @@
       {\href{https://bithumbcorp.com/ko}{Bithumb}}{강남구, 대한민국}
       {Software Engineer, Data}{Jan 2025 -- Present}
       \resumeItemListStart
-        \resumeItem{Design Scalable and Optimized Data Platform}
+        \resumeItem{Platform: Lakehouse 아키텍처 전환|플랫폼 as a container}
           {
-            대용량 데이터를 효율적으로 수집/처리하는 Lakehouse 아키텍처 기반 데이터 플랫폼을 개발하고 운영합니다. 매니지드 서비스로 구성한 데이터플랫폼을 컨테이너 환경(EKS)으로 옮기고 있어요.
-            24/7 서비스에서 발생하는 데이터를 배치|스트리밍 파이프라인으로 관리해요.
-            CMU SEI의 SAD(Software Architecture Document) 템플릿을 기반으로 데이터 플랫폼 아키텍처를 체계적으로 정의하고,
-            ADR(Architecture Decision Record)을 통해 주요 기술 의사결정을 기록·관리하여 시스템의 유지보수성과 확장성을 강화했어요.
+            Cloud DW(Redshift) 에 의존한 데이터플랫폼을 OpenTableFormat|Iceberg 전환.
+            인스턴스/매니지드 서비스 기반 데이터 플랫폼을 EKS 환경으로 전환하여 선언형 리소스 관리 환경 구성
+            \resumeSubItemListStart
+              \item 1-vendor 종속에서 여러 쿼리엔진(or OLAP Database) 사용가능한 레이크하우스 환경으로 확장성 증가
+              \item 서비스 복구 시 불필요한 작업 과정 축소. kube friendly 는 Continuous sharing 으로 개발자 간 역량 완화
+            \resumeSubItemListEnd
           }
-        \resumeItem{Serve Production Data}
+        \resumeItem{Pipeline: Flink/Iceberg 기반 준실시간 수집 파이프라인 개발}
           {
-            내부 분석을 위한 데이터 뿐 아니라 사용자 대상 서비스에 데이터를 제공할 수 있도록 Serving Layer 를 설계하고 운영했습니다.
-            기존 Reverse ETL 구조의 한계(e.g 짧은 인터벌 집계 데이터 제공의 어려움)를 극복하고자 OLAP engine 을 도입하고 있어요.
-            임직원들을 위한 데이터 뿐만 아니라 마케팅|캠페인 에 활용가능한 형태로 서비스에 가까운 영향을 미치는 데이터를 제공해요.
+            CDC 메세지를 Table API based Flink 애플리케이션을 통해 Iceberg 테이블에 적재하는 파이프라인 설계 및 개발
+            \resumeSubItemListStart
+              \item Debezium|Kafka|Flink, Iceberg로 이어지는 실시간 적재 표준 아키텍처 정의
+              \item 원본 CDC 로그 축적(Changelog)과 최신 상태 집계(Materialized) 모드를 이원화하여 분석 가용성 확보
+              \item Minimum hour 데이터를 분 미만 신선도를 제공하여 탄력적 분석환경 마련
+            \resumeSubItemListEnd
           }
-        \resumeItem{Data Literacy Evangelism}
+        \resumeItem{Develop: 개발자 경험(DX) 개선}
           {
-            `데이터는 어렵다`는 편견을 깨고자 누구나 데이터와 친해질 수 있도록 '데이터 전도사' 역할을 맡았습니다.
-            동료들이 데이터의 가치를 체감하고 업무에 더 잘 활용할 수 있도록 돕는 활동들을 주도하며 긍정적인 데이터 문화를 만들어가고 있어요.
+            uv|hatch|prek 기반 Monorepo 환경을 구축하여 공통 패키지 및 파이프라인의 의존성 파편화 해결.
+            코드 변경으로 변경 전파가 예상될 파이프라인을 CI 단계에서 실행, 안전한 데이터 개발환경 구성
+            \resumeSubItemListStart
+              \item defacto 도구들을 적극 활용, 구성요소가 많아져 다소 복잡하지만 높아진 코드 문해력
+              \item Test Automation within CI 를 yaml 명세 기반으로 구성하여 코드 품질 개선
+              \item 데이터 개발 변경 사항이 운영 중인 실서비스 서빙 파이프라인에 영향을 주지 않도록 검증 환경 및 안정성 확보
+            \resumeSubItemListEnd
           }
       \resumeItemListEnd
       
-% --------Multiple Positions Heading------------
-  %  \resumeSubSubheading
-  %   {Software Engineer I}{Oct 2014 -- Sep 2016}
-  %   \resumeItemListStart
-  %      \resumeItem{Apache Beam}
-  %        {Apache Beam is a unified model for defining both batch and streaming data-parallel processing pipelines}
-  %   \resumeItemListEnd
-
-%-------------------------------------------
-
     \resumeSubheading
       {\href{https://coinonecorp.com}{Coinone}}{영등포구, 대한민국}
       {Data Engineer}{Sep 2022 -- Jan 2025}
       \resumeItemListStart
-        \resumeItem{Developed data warehousing}
+        \resumeItem{Debezium/Kafka Connect 기반 CDC 파이프라인 설계}
           {
-            거래소 서비스에서 발생한 데이터를 클라우드 데이터웨어하우스에 적재하는 파이프라인을 운영했습니다.
-            CDC 파이프라인과 여러 토픽에 발행하는 이벤트 메세지를 소비하는 스트리밍 파이프라인을 처음으로 개발하고 운영했어요.
-            그리고 신뢰할 수 있는 데이터를 제공하는 Data as a Product 에 집중했어요.
+            OLTP 변경 사항을 Debezium Connector를 활용해 MSK(Kafka)를 거쳐 BigQuery로 적재하는 스트리핑 파이프라인 설계 및 운영.
+            \resumeSubItemListStart
+              \item schema|payload jsonstring 형태로 제공하며 스키마 변경 에 유연함 제공
+              \item DBA 협업을 통해 writer 인스턴스 부하(Snapshot/Locking 모드) 방지 정책 마련
+              \item Grafana JMX 메트릭 기반 지연 감지 모니터링 구성
+            \resumeSubItemListEnd
           }
-        \resumeItem{Constructed metric store} {
-            임직원들에게 다양하고 유용한 지표를 제공하고자 지표저장소를 만들고 운영했습니다.
-            그들이 보고싶어하는 지표(협의된)를 쉽게 생산하는 데이터 프로덕트(show metric using cli)도 만들었어요.
-            머릿속에서 뛰놀던 의미있는 지표를 만들어볼 수 있는 환경을 제공했어요.
-          }
-        \resumeItem{Provided self-serve-data}
+        \resumeItem{스트리밍 파이프라인 통합}
           {
-            원하는 데이터를 데이터 조직에 의존하지 않고 스스로 찾아 볼 수 있도록 환경을 제공했습니다.
-            도구(BI/디스커버리/워크플로우 오케스트레이션)들을 컨테이너 환경에 맞게 잘 패킹하고, 단일 진실 공급원을 유지했어요.
+            기존 Kinesis/Lambda 기반 수집 흐름을 Kafka Connect(BigQuery Sink) 표준 파이프라인으로 일원화.
+            \resumeSubItemListStart
+              \item Schema Auto-Creation 및 에러 재처리를 위한 DLQ 환경 구축으로 데이터 수집 유실 방지
+              \item 배포 방식 표준화(connect UI|helm/ArgoCD)를 통한 데이터 파이프라인 유지보수 비용 단축
+            \resumeSubItemListEnd
+          }
+        \resumeItem{dbt CI/CD 및 SQL 품질 검증 자동화}
+          {
+            GitHub Actions 기반 CI/CD 구축 및 SQL 품질 자동 검증 환경 구성.
+            \resumeSubItemListStart
+              \item select modified 기반 Slim CI 전략 도입을 통한 빌드 및 영향도 검증 시간 70\% 단축
+              \item SQLFluff 린터 및 Reviewdog을 PR 빌드 파이프라인에 통합하여 협업 개발 시 SQL 코드의 품질 검증 자동화
+            \resumeSubItemListEnd
+          }
+        \resumeItem{Self-Serve Data 플랫폼 도입}
+          {
+            내부 사용자가 스스로 데이터를 적재, 변환, 탐색할 수 있는 환경 제공.
+            \resumeSubItemListStart
+              \item DataHub 수집 및 태그 기반 개인정보 레이블 구성으로 데이터 탐색 비용 및 ad-hoc 추출 요청 병목 해소
+              \item Airbyte 기반 custom 커넥터 개발을 통한 외부 데이터 수집 분리|Self Builder 제공
+              \item MageAI(3rd 워크플로우 오케스트레이션)|Airbyte 기반 custom 커넥터 개발을 통한 외부 정제 작업 자동화
+            \resumeSubItemListEnd
           }
       \resumeItemListEnd
 
@@ -179,15 +199,21 @@
       {\href{https://www.nhnenterprise.com}{NHN Enterprise}}{분당구, 대한민국}
       {Cloud Operation Engineer}{Nov 2020 -- Sep 2022}
       \resumeItemListStart
-        \resumeItem{Operated Public Cloud}
+        \resumeItem{퍼블릭 클라우드 검색 플랫폼 운영 및 관리}
           {
-            클라우드 검색 플랫폼 Log \& Crash Search 를 운영했습니다.
-            CSP SLA 를 준수하기 위해 안정적인 서비스를 제공했으며, 서비스에 사용되는 데이터 오픈소스들을 가까이서 만져볼 수 있는 경험을 쌓았어요.
+            CSP SLA 준수를 목표로 대용량 로그 수집 및 검색 서비스(Log \& Crash Search) 운영 및 시스템 안정성 유지.
+            \resumeSubItemListStart
+              \item 검색 플랫폼 인프라 개선을 위해 Elasticsearch 등 데이터 관련 오픈소스 기반 인프라 성능 튜닝
+              \item 시스템 장애에 대응하는 트러블슈팅 수행 및 안정적인 백업 운영 정책 적용
+            \resumeSubItemListEnd
           }
-        \resumeItem{Managed Cloud Service Deployment}
+        \resumeItem{서비스 배포 자동화 및 CI/CD 파이프라인 구축}
           {
-            NHN Cloud 서비스를 배포하고 CICD 파이프라인을 관리했습니다.
-            서비스 개발배포(CI/CD)의 큰 라이프사이클을 경험, 개발자들 요구사항을 만족하는 배포 모듈을 유지보수 했어요.
+            NHN Cloud 주요 서비스의 배포 및 CI/CD 파이프라인 구성을 관리.
+            \resumeSubItemListStart
+              \item 개발자의 배포 요구사항을 분석하여 공통 배포 템플릿 모듈 유지보수
+              \item 버전별 일관된 인프라 및 배포 형상 관리
+            \resumeSubItemListEnd
           }
       \resumeItemListEnd
 
@@ -195,29 +221,33 @@
       {\href{https://www.tibero.com/main.do}{TmaxData}}{분당구, 대한민국}
       {Technical Support Engineer}{Aug 2018 -- Nov 2020}
       \resumeItemListStart
-        \resumeItem{Technical Support}
+        \resumeItem{DBMS 및 빅데이터 솔루션 기술 지원}
           {
-            DBMS/Bigdata 제품 기술 지원 및 고객사 대상 PoC를 수행했습니다.
-            데이터 기반 문제 해결 역량을 길렀어요.
+            기업 고객사 대상 대형 DBMS(Tibero) 기술 지원 및 POC 수행.
+            \resumeSubItemListStart
+              \item DBMS 및 클러스터 이중화 환경(TAC) 장애 트러블슈팅 및 성능 최적화 지원
+              \item 빅데이터 솔루션 도입 검토를 위한 고객사 PoC 수행, 쿼리 튜닝 및 데이터 정합성 검증 주도
+            \resumeSubItemListEnd
           }
       \resumeItemListEnd
 
   \resumeSubHeadingListEnd
 
 %-----------PROJECTS-----------------
-\section{Projects}
-  \resumeSubHeadingListStart
-    \resumeSubItem{Platform Architecturing}
-      {개발자 경험(DX)을 중심으로 Monorepo, SAD/ADR 등을 도입하여 데이터 플랫폼 아키텍처를 설계하고 문서기반 문화(Document driven culture) 주도}
-    \resumeSubItem{DataPlatform on Kubernetes}
-      {EKS 이용해 조직 내 컨테이너 애플리케이션 도입을 시범적으로 선도, Argo CD·Helm 기반 GitOps 운영 체계를 정착시켜 배포 일관성과 운영 효율성 향상}
-    \resumeSubItem{Streaming Pipelines}
-      {Debezium Connector/Kafka Connect/Flink 를 이용한 데이터 수집부터 변환, 배포까지의 과정을 마련하고 견고한 Observability 제공}
-    \resumeSubItem{Data as a Product}
-      {Data API 를 개발하고 Data Quality Gate(Great Expectation)를 도입하여 신뢰도 높은 데이터 제품제공 기반 마련}
-    \resumeSubItem{Open Source Contributions}
-      {주요 오픈소스 프로젝트에 기여하며 기술 생태계 발전에 공헌}
-  \resumeSubHeadingListEnd
+% 필요 시 추가|현재는 굳이 필요없어 보임
+% \section{Projects}
+%   \resumeSubHeadingListStart
+%     \resumeSubItem{Platform Architecturing}
+%       {개발자 경험(DX)을 중심으로 Monorepo, SAD/ADR 등을 도입하여 데이터 플랫폼 아키텍처를 설계하고 문서기반 문화(Document driven culture) 주도}
+%     \resumeSubItem{DataPlatform on Kubernetes}
+%       {EKS 이용해 조직 내 컨테이너 애플리케이션 도입을 시범적으로 선도, Argo CD·Helm 기반 GitOps 운영 체계를 정착시켜 배포 일관성과 운영 효율성 향상}
+%     \resumeSubItem{Streaming Pipelines}
+%       {Debezium Connector/Kafka Connect/Flink 를 이용한 데이터 수집부터 변환, 배포까지의 과정을 마련하고 견고한 Observability 제공}
+%     \resumeSubItem{Data as a Product}
+%       {Data API 를 개발하고 Data Quality Gate(Great Expectation)를 도입하여 신뢰도 높은 데이터 제품제공 기반 마련}
+%     \resumeSubItem{Open Source Contributions}
+%       {주요 오픈소스 프로젝트에 기여하며 기술 생태계 발전에 공헌}
+%   \resumeSubHeadingListEnd
 
 %-----------EDUCATION-----------------
 \section{Education}
