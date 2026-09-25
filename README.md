@@ -8,19 +8,6 @@ fork https://github.com/sb2nov/resume
 
 Get started quickly using [Overleaf](https://www.overleaf.com/latex/templates/software-engineer-resume/gqxmqsvsbdjf) template.
 
-### Build using Docker
-
-```sh
-docker build -t latex .
-docker run --rm -i -v "$PWD":/data latex pdflatex jaejun_lee_resume.tex
-```
-
-### Docker w/ vscode Latex Workshop
-
-```sh
-docker pull --platform linux/amd64 ghcr.io/xu-cheng/texlive-full:latest
-```
-
 ### Work with vscode
 1. Install VS Code, Docker Desktop, and the “LaTeX Workshop” extension.
 2. Pull the TeX Live image ghcr.io/xu-cheng/texlive-full (Apple Silicon may need the platform flag):
@@ -38,7 +25,13 @@ docker pull --platform linux/amd64 ghcr.io/xu-cheng/texlive-full:latest
 
 4. Open the folder in VS Code and run `LaTeX Workshop: Build LaTeX project` to generate jaejun_lee_resume.pdf.
 
+### Build using Docker
 
-### License
+```sh
+docker build -t latex .
+docker run --rm -i -v "$PWD":/data latex pdflatex jaejun_lee_resume.tex
+```
+
+## License
 
 Format is MIT but all the data is owned by Sourabh Bajaj.
