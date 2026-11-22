@@ -102,10 +102,10 @@
 \vspace{4pt}
 \noindent\rule{\linewidth}{0.4pt}
 {
-  국내 SW/Cloud Provider, Crypto Currency, Securities 에서 데이터플랫폼 설계|구축|운영까지 깊고 넓은 경험을 가진 8+ years Software Engineer(Data) 입니다.
+  DB 기술지원과 클라우드 운영에서 시작해 CDC/스트리밍, 레이크하우스, 비즈니스 지표까지 직접 만들어 온 8+ years Software Engineer(Data) 입니다.
   수학 전공 베이스로 CS knowledge 를 채우며 본질에 대한 깊은 이해와, 새로운 기술에 대한 끊임없는 호기심을 바탕으로 복잡한 문제해결을 즐겨요.
-  Cloud DW, Workflow/Container Orchestration 를 포함해 인프라(IaC)를 다룰 수 있고, 오픈소스 기여(기능추가/버그/문서)를 통해 생태계에 공헌하고 있어요.
-  데이터 무결|신뢰성, 그리고 \textbf{보고싶은 누구나 접근 가능한 신뢰 가능한 데이터} 제공에 누구보다 자신있어요.
+  Cloud DW, Workflow/Container Orchestration 을 포함해 인프라(IaC)를 다룰 수 있고, 오픈소스 기여(기능추가/버그/문서)를 통해 생태계에 공헌하고 있어요.
+  데이터 무결|신뢰성, 그리고 \textbf{보고 싶은 누구나 접근 가능한 신뢰 가능한 데이터} 제공에 누구보다 자신 있어요.
 }
 
 % --------SKILLS------------
@@ -133,33 +133,25 @@
       {\href{https://bithumbcorp.com/ko}{Bithumb}}{강남구, 대한민국}
       {Software Engineer, Data}{Jan 2025 -- Sep 2026}
       \resumeItemListStart
-        \resumeItem{Platform: Lakehouse 아키텍처 전환|플랫폼 as a container}
+        \resumeItem{Platform: 벤더 종속 해소|Iceberg 레이크하우스 전환}
           {
-            Cloud DW(Redshift) 에 의존한 데이터플랫폼을 OpenTableFormat|Iceberg 전환.
-            인스턴스/매니지드 서비스 기반 데이터 플랫폼을 EKS 환경으로 전환하여 선언형 리소스 관리 환경 구성
+            Redshift 하나로만 쿼리하던 데이터 플랫폼을, 여러 쿼리 엔진이 같은 테이블을 읽는 구조로 재편.
             \resumeSubItemListStart
-              \item 1-vendor 종속에서 여러 쿼리엔진(or OLAP Database) 사용가능한 레이크하우스 환경으로 확장성 증가
-              \item 서비스 복구 시 불필요한 작업 과정 축소. kube friendly 는 Continuous sharing 으로 개발자 간 역량 완화
+              \item 서빙 테이블은 그대로 두고 사용자 조회가 많은 핵심 테이블(주문, 체결, 입출금, 회원)부터 이관
+              \item 플랫폼을 EKS 로 옮겨 자동 페일오버 없이 수동 재시작하던 복구를 선언형 절차로 대체
             \resumeSubItemListEnd
           }
         \resumeItem{Pipeline: Flink/Iceberg 기반 준실시간 수집 파이프라인 개발}
           {
-            CDC 메세지를 Table API based Flink 애플리케이션을 통해 Iceberg 테이블에 적재하는 파이프라인 설계 및 개발
+            CDC 메시지를 Flink(Table API)로 Iceberg 테이블에 적재해, 데이터 신선도를 시간 단위에서 분 미만으로 단축.
             \resumeSubItemListStart
-              \item Debezium|Kafka|Flink, Iceberg로 이어지는 실시간 적재 표준 아키텍처 정의
-              \item 원본 CDC 로그 축적(Changelog)과 최신 상태 집계(Materialized) 모드를 이원화하여 분석 가용성 확보
-              \item Minimum hour 데이터를 분 미만 신선도를 제공하여 탄력적 분석환경 마련
+              \item Debezium|Kafka|Flink, Iceberg 로 이어지는 실시간 적재 표준을 정의해 핵심 테이블부터 적용
+              \item 변경 이력(Changelog)과 최신 상태(Materialized) 두 모드로 적재해 이력 분석과 현재 상태 조회 지원
             \resumeSubItemListEnd
           }
         \resumeItem{Develop: 개발자 경험(DX) 개선}
           {
-            uv|hatch|prek 기반 Monorepo 환경을 구축하여 공통 패키지 및 파이프라인의 의존성 파편화 해결.
-            코드 변경으로 변경 전파가 예상될 파이프라인을 CI 단계에서 실행, 안전한 데이터 개발환경 구성
-            \resumeSubItemListStart
-              \item defacto 도구들을 적극 활용, 구성요소가 많아져 다소 복잡하지만 높아진 코드 문해력
-              \item Test Automation within CI 를 yaml 명세 기반으로 구성하여 코드 품질 개선
-              \item 데이터 개발 변경 사항이 운영 중인 실서비스 서빙 파이프라인에 영향을 주지 않도록 검증 환경 및 안정성 확보
-            \resumeSubItemListEnd
+            uv|hatch|prek 기반 Monorepo 로 공통 패키지와 파이프라인의 의존성 파편화를 해결하고, 코드 변경이 전파될 파이프라인을 CI 에서 먼저 실행해 서빙 파이프라인을 보호.
           }
       \resumeItemListEnd
       
